@@ -29,7 +29,7 @@ func Login() (*rod.Browser, *rod.Page) {
 
 	//defer browser.MustClose()
 
-	page := browser.MustPage("https://web.facebook.com/").MustWaitLoad().MustWaitDOMStable().MustSetViewport(1920, 1080, 1, false).MustWindowMaximize()
+	page := browser.MustPage("https://web.facebook.com/").MustWaitLoad().MustWaitDOMStable().MustSetViewport(1200, 800, 1, false).MustWindowMaximize()
 
 	//page = page.MustWindowMaximize()
 

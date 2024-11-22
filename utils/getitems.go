@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-type phone struct {
+type item struct {
 	Images      []string
 	Title       string
 	Price       string
@@ -18,8 +18,8 @@ type phone struct {
 	Tags        []string
 }
 
-func GetPhones(root string) ([]phone, error) {
-	var phones []phone
+func GetItems(root string) ([]item, error) {
+	var items []item
 
 	entries, err := os.ReadDir(root)
 	if err != nil {
@@ -102,7 +102,7 @@ func GetPhones(root string) ([]phone, error) {
 		}
 
 		// Create a PostContent instance and append to slice
-		phones = append(phones, phone{
+		items = append(items, item{
 			Images:      imageFiles,
 			Title:       title,
 			Price:       price,
@@ -113,5 +113,5 @@ func GetPhones(root string) ([]phone, error) {
 		})
 	}
 
-	return phones, nil
+	return items, nil
 }

@@ -9,7 +9,7 @@ import (
 	"github.com/go-rod/rod/lib/input"
 )
 
-func ListPhones(browser *rod.Browser, page *rod.Page, phones []phone) error {
+func ListItems(browser *rod.Browser, page *rod.Page, phones []item) error {
 	defer browser.MustClose()
 
 	for _, p := range phones {
@@ -119,12 +119,14 @@ func ListPhones(browser *rod.Browser, page *rod.Page, phones []phone) error {
 		page.MustElement(`div[aria-label="Publish"]`).MustClick()
 
 		// wait for phone to be listed
-		time.Sleep(5 * time.Minute)
+		time.Sleep(1 * time.Minute)
 
 		fmt.Printf("%s listed\n", p.Title)
 
 		fmt.Println("list next phone")
 	}
+
+	fmt.Println("All Items Listed Successfully")
 
 	return nil
 }

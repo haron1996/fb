@@ -110,20 +110,18 @@ func main() {
 
 	root := "/home/kwandapchumba/Pictures/all_phones"
 
-	// get phones
-	phones, err := utils.GetPhones(root)
+	// get items
+	items, err := utils.GetItems(root)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	totalPhones := len(phones)
-
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
-	// shuffle phones
-	r.Shuffle(totalPhones, func(i, j int) {
-		phones[i], phones[j] = phones[j], phones[i]
+	// shuffle items
+	r.Shuffle(len(items), func(i, j int) {
+		items[i], items[j] = items[j], items[i]
 	})
 
 	// login
@@ -135,7 +133,7 @@ func main() {
 
 	//utils.LeaveGroups(browser, page)
 
-	utils.ListPhones(browser, page, phones)
+	utils.ListItems(browser, page, items)
 
 	// for {
 
